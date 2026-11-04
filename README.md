@@ -84,6 +84,7 @@ Both, on purpose.
 - **DuckDB is ELT.** The raw files are first loaded, unchanged, into a database table. Then five SQL steps run inside the database (`raw_trips`, `trips`, `flagged`, `used_trips`, `daily`). The engine function can keep the layers in a database file, to look at them with SQL. This is not offered on the command line, and it has no automated test.
 - **The default is pandas (ETL).** It is the simplest to read, and the data is small (146,486 rows).
 - ELT would be a better fit when the data is too large for memory, or when the raw data must be kept and asked new questions later. That is general reasoning. I did not test it here.
+- **No dbt was used.** The ELT engine writes its five tables with plain SQL in DuckDB. The brief lists dbt as a topic to revisit, but it does not require it.
 
 ## The three engines
 

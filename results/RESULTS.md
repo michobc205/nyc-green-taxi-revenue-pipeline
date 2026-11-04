@@ -159,6 +159,7 @@ Each decision has the problem, the options, my choice, the reason and the eviden
 - **Choice:** build all three on purpose. pandas and polars are ETL, DuckDB is ELT. The default engine is **pandas**.
 - **Reason:** I wanted a study that compares them on the same task, and the school asks to explain ETL against ELT. pandas is the default because it is the simplest to read, and the data is small.
 - **Evidence:** section 6 (identical results) and section 7 (timing).
+- **dbt:** No dbt was used. The ELT engine writes its five tables with plain SQL in DuckDB. The brief lists dbt as a topic to revisit, but it does not require it.
 
 ### D7. The result table and the output files
 
