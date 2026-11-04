@@ -1,0 +1,5 @@
+# Store and check out all text files with Unix line endings, on every system
+* text=auto eol=lf
+*.pptx binary
+*.pdf binary
+*.parquet binary
