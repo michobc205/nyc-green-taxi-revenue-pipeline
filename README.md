@@ -37,10 +37,12 @@ uv run taxi-revenue run                    # calculate with the default engine (
 uv run taxi-revenue run --engine duckdb    # or: --engine polars
 uv run taxi-revenue compare                # check the 3 results are identical, and time them
 uv run taxi-revenue flow                   # the same pipeline as a Prefect flow (optional)
-uv run pytest                              # the tests (about 35 seconds; the first run after a fresh install can take a few minutes)
+uv run pytest                              # the tests (about 35 seconds)
 uv run python experiments/data_profile.py                # the tables behind the data findings (read-only)
 uv run python experiments/engine_timing_experiment.py    # why is DuckDB slower? (a minute or so)
 ~~~
+
+The first run after a fresh install can take a few minutes.
 
 What `run` prints on the real data:
 
