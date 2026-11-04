@@ -1,0 +1,116 @@
+{
+  "environment": {
+    "system": "Windows",
+    "python": "3.13.17",
+    "pandas": "3.1.0",
+    "polars": "2.1.0",
+    "duckdb": "2.0.0",
+    "cpu_count": 8
+  },
+  "data": {
+    "rows_read": 146486,
+    "files": {
+      "green_tripdata_2025-01.parquet": 1178451,
+      "green_tripdata_2025-02.parquet": 1117474,
+      "green_tripdata_2025-03.parquet": 1253510
+    }
+  },
+  "repeats": 7,
+  "all_variants_identical": true,
+  "part_1_reading_only": {
+    "pandas, all columns": {
+      "median": 0.023100299993529916,
+      "fastest": 0.02012739982455969,
+      "slowest": 0.02556769992224872
+    },
+    "pandas, 2 columns": {
+      "median": 0.009744900045916438,
+      "fastest": 0.009031800087541342,
+      "slowest": 0.01073310011997819
+    },
+    "polars, all columns": {
+      "median": 0.02007999992929399,
+      "fastest": 0.017226000083610415,
+      "slowest": 0.02138249995186925
+    },
+    "polars, 2 columns": {
+      "median": 0.007051100023090839,
+      "fastest": 0.0065200000535696745,
+      "slowest": 0.008484899997711182
+    },
+    "duckdb, all columns (into a table)": {
+      "median": 0.08513009990565479,
+      "fastest": 0.08099910011515021,
+      "slowest": 0.10151389986276627
+    },
+    "duckdb, 2 columns (into a table)": {
+      "median": 0.03825229988433421,
+      "fastest": 0.03300559986382723,
+      "slowest": 0.04340169997885823
+    }
+  },
+  "part_2_whole_calculation": {
+    "pandas as built (reads all columns)": {
+      "median": 0.08981939987279475,
+      "fastest": 0.08505069999955595,
+      "slowest": 0.09681090014055371
+    },
+    "pandas, reads only the 2 columns": {
+      "median": 0.07898490014486015,
+      "fastest": 0.06650609988719225,
+      "slowest": 0.08478139992803335
+    },
+    "polars as built (lazy, 2 columns)": {
+      "median": 0.022484099958091974,
+      "fastest": 0.021928400034084916,
+      "slowest": 0.023882299894466996
+    },
+    "duckdb as built (5 table layers)": {
+      "median": 0.1309980999212712,
+      "fastest": 0.1201055001001805,
+      "slowest": 0.14987310022115707
+    },
+    "duckdb, one query on the files": {
+      "median": 0.04545399989001453,
+      "fastest": 0.03899249993264675,
+      "slowest": 0.05500290007330477
+    }
+  },
+  "part_3_duckdb_layers": {
+    "0 start the database": {
+      "median": 0.02282569999806583,
+      "fastest": 0.021342100109905005,
+      "slowest": 0.025810200022533536
+    },
+    "1 raw_trips: load the files, all columns": {
+      "median": 0.04540290008299053,
+      "fastest": 0.0396932999137789,
+      "slowest": 0.05524179991334677
+    },
+    "2 trips: 2 columns, clean types": {
+      "median": 0.0028591000009328127,
+      "fastest": 0.002690899884328246,
+      "slowest": 0.0032387999817728996
+    },
+    "3 flagged: mark every trip": {
+      "median": 0.00479010003618896,
+      "fastest": 0.00424589985050261,
+      "slowest": 0.0056507999543100595
+    },
+    "4 used_trips: keep the trips that count": {
+      "median": 0.017788999946787953,
+      "fastest": 0.016726099886000156,
+      "slowest": 0.02176299993880093
+    },
+    "5 daily: one row per day": {
+      "median": 0.007843300001695752,
+      "fastest": 0.007101099938154221,
+      "slowest": 0.009332600049674511
+    },
+    "6 read the table and the counts out": {
+      "median": 0.004381800070405006,
+      "fastest": 0.003365900134667754,
+      "slowest": 0.0054472999181598425
+    }
+  }
+}
